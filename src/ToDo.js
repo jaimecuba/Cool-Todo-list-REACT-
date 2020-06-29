@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './ToDo.css'
 
 export default class ToDo extends Component {
 
@@ -12,6 +13,8 @@ export default class ToDo extends Component {
         this.handleDelete = this.handleDelete.bind(this)
         this.handleEdit = this.handleEdit.bind(this)
         this.handleInput = this.handleInput.bind(this)
+        this.handleUpdate = this.handleUpdate.bind(this)
+        this.handleCompletion = this.handleCompletion.bind(this)
     }
 
     handleDelete(evt){
@@ -33,6 +36,15 @@ export default class ToDo extends Component {
 
     handleUpdate(evt){
         evt.preventDefault()
+        this.props.update(this.props.id, this.state.task)
+        this.setState({
+            isEditing: !this.state.isEditing
+        })
+    }
+
+    handleCompletion(evt){
+        evt.preventDefault()
+        this.props.completion(this.props.id)
     }
 
     render() {
@@ -48,9 +60,9 @@ export default class ToDo extends Component {
         } else {
             result = (
                 <div>
+                    <li className={this.props.completed ? 'completed' : ''} onClick={this.handleCompletion}>{this.props.task}</li>
                     <button onClick={this.handleEdit}>Edit</button>
                     <button onClick={this.handleDelete}>Delete</button>
-                    {this.props.task}
                     <hr/>
                 </div>
             )

@@ -52,18 +52,21 @@ export default class ToDo extends Component {
         let result
         if(this.state.isEditing){
             result = (
-                <form>
-                    <input type="text" value={this.state.task} onChange={this.handleInput}/>
-                    <button onClick={this.handleUpdate}>Save</button>
-                </form>
+                <div className="Todo">
+                    <form className="Todo-edit-form">
+                        <input type="text" value={this.state.task} onChange={this.handleInput}/>
+                        <button onClick={this.handleUpdate}>Save</button>
+                    </form>
+                </div>
             )
         } else {
             result = (
-                <div>
-                    <li className={this.props.completed ? 'completed' : ''} onClick={this.handleCompletion}>{this.props.task}</li>
-                    <button onClick={this.handleEdit}>Edit</button>
-                    <button onClick={this.handleDelete}>Delete</button>
-                    <hr/>
+                <div className="Todo">
+                    <li className={this.props.completed ? 'Todo-task completed' : 'Todo-task'} onClick={this.handleCompletion}>{this.props.task}</li>
+                    <div className="Todo-buttons">
+                        <button onClick={this.handleEdit}><i className="fas fa-pen"/></button>
+                        <button onClick={this.handleDelete}><i className="fas fa-trash"/></button>
+                    </div>
                 </div>
             )
         }

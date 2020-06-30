@@ -1,0 +1,38 @@
+.Newtodoform
+
+.Newtodoform{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.Newtodoform input{
+    margin-top: 3rem;
+    border: none;
+    flex-grow: 1;
+    background: #f7f1f1;
+    padding: 0 1.5em;
+    font-size: initial;
+}
+
+.Newtodoform button{
+    background: #ff6666;
+    padding: 0 1.3em;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 1px solid rgba(255,255,255,0.3);
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+}
+
+.Newtodoform button:hover{
+    background: #ff5e5e;
+}
+
+.Newtodoform input,
+.Newtodoform button{
+    font-family: 'Quicksand', sans-serif ;
+    height: 3rem;
+}
